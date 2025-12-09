@@ -1,0 +1,31 @@
+# Build directories
+build/
+.gradle/
+out/
+target/
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+
+# Database files
+*.db
+*.h2.db
+*.trace.db
+bda.mv.db
+bda.trace.db
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+
