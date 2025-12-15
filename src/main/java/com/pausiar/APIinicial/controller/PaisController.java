@@ -22,7 +22,6 @@ public class PaisController {
         List<Pais> paisos = (List<Pais>) paisRepository.findAll();
         List<Pais> resultat = new ArrayList<>();
 
-        // Bucle como solicita el profesor
         for (Pais pais : paisos) {
             resultat.add(pais);
         }
