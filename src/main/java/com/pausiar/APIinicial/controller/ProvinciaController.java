@@ -22,7 +22,6 @@ public class ProvinciaController {
         List<Provincia> provincies = (List<Provincia>) provinciaRepository.findAll();
         List<Provincia> resultat = new ArrayList<>();
 
-        // Bucle como solicita el profesor
         for (Provincia provincia : provincies) {
             resultat.add(provincia);
         }
