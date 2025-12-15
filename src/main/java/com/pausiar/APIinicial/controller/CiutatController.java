@@ -22,7 +22,6 @@ public class CiutatController {
         List<Ciutat> ciutats = (List<Ciutat>) ciutatRepository.findAll();
         List<Ciutat> resultat = new ArrayList<>();
 
-        // Bucle como solicita el profesor
         for (Ciutat ciutat : ciutats) {
             resultat.add(ciutat);
         }
