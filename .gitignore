@@ -36,10 +36,6 @@ gradle-wrapper.jar
 *.keystore
 *.jks
 
-# Local env files
-.env
-.env.local
-
 # Ignore IntelliJ out/ directory
 out/
 
