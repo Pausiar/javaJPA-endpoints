@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ca" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Habilitats - VALORANT</title>
+    <link rel="stylesheet" type="text/css" href="/css/llistatGeneral.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tungsten:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <h1>HABILITATS</h1>
+</header>
+
+<main class="container">
+    <div style="margin-bottom: 20px;">
+        <a href="/" class="btn btn-secondary">← Tornar al menu</a>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Tecla</th>
+            <th>Descripcio</th>
+            <th>Agent</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="habilitat : ${habilitats}">
+            <td th:text="${habilitat.id}"></td>
+            <td th:text="${habilitat.nom}"></td>
+            <td>
+                <span class="badge badge-key" th:text="${habilitat.tecla}"></span>
+            </td>
+            <td th:text="${habilitat.descripcio}"></td>
+            <td>
+                <span class="badge badge-primary" th:text="${habilitat.personatge.nom}"></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

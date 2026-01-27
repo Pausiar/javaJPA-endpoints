@@ -14,48 +14,52 @@ import java.util.List;
 public class MVCController {
 
     @Autowired
-    private CiutatRepository ciutatRepository;
+    private ModoJuegoRepository modoJuegoRepository;
 
     @Autowired
-    private ProvinciaRepository provinciaRepository;
+    private MapaRepository mapaRepository;
 
     @Autowired
-    private PaisRepository paisRepository;
+    private PersonatgeRepository personatgeRepository;
 
     @Autowired
-    private FestersEventsRepository festesEventsRepository;
+    private HabilitatRepository habilitatRepository;
 
-    @GetMapping("/ciutats")
-    public String llistatCiutats(Model model) {
+    @Autowired
+    private ArmaRepository armaRepository;
 
-        //recuperem ciutats de la db
-        List<Ciutat> ciutatList = (List<Ciutat>) ciutatRepository.findAll();
-
-        //afegim llista al model amb el nom "ciutats"
-        model.addAttribute("ciutats", ciutatList);
-
-        //retornem nom de plantilla
-        return "LlistatCiutats";
+    @GetMapping("/modos")
+    public String llistatModos(Model model) {
+        List<ModoJuego> modosList = (List<ModoJuego>) modoJuegoRepository.findAll();
+        model.addAttribute("modos", modosList);
+        return "LlistatModos";
     }
 
-    @GetMapping("/provincies")
-    public String llistatProvincies(Model model) {
-        List<Provincia> provinciaList = (List<Provincia>) provinciaRepository.findAll();
-        model.addAttribute("provincies", provinciaList);
-        return "LlistaProvincies";
+    @GetMapping("/mapes")
+    public String llistatMapes(Model model) {
+        List<Mapa> mapesList = (List<Mapa>) mapaRepository.findAll();
+        model.addAttribute("mapes", mapesList);
+        return "LlistatMapes";
     }
 
-    @GetMapping("/paisos")
-    public String llistatPaisos(Model model) {
-        List<Pais> paisList = (List<Pais>) paisRepository.findAll();
-        model.addAttribute("paisos", paisList);
-        return "LlistaPaïsos";
+    @GetMapping("/personatges")
+    public String llistatPersonatges(Model model) {
+        List<Personatge> personatgesList = (List<Personatge>) personatgeRepository.findAll();
+        model.addAttribute("personatges", personatgesList);
+        return "LlistatPersonatges";
     }
 
-    @GetMapping("/festes")
-    public String llistatFestes(Model model) {
-        List<FestesEvents> festesList = (List<FestesEvents>) festesEventsRepository.findAll();
-        model.addAttribute("festes", festesList);
-        return "LlistaFestesEvents";
+    @GetMapping("/habilitats")
+    public String llistatHabilitats(Model model) {
+        List<Habilitat> habilitatsList = (List<Habilitat>) habilitatRepository.findAll();
+        model.addAttribute("habilitats", habilitatsList);
+        return "LlistatHabilitats";
+    }
+
+    @GetMapping("/armes")
+    public String llistatArmes(Model model) {
+        List<Arma> armesList = (List<Arma>) armaRepository.findAll();
+        model.addAttribute("armes", armesList);
+        return "LlistatArmes";
     }
 }

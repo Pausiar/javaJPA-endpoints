@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ca" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mapes - VALORANT</title>
+    <link rel="stylesheet" type="text/css" href="/css/llistatGeneral.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tungsten:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <h1>MAPES</h1>
+</header>
+
+<main class="container">
+    <div style="margin-bottom: 20px;">
+        <a href="/" class="btn btn-secondary">← Tornar al menu</a>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Descripcio</th>
+            <th>Imatge</th>
+            <th>Mode de Joc</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="mapa : ${mapes}">
+            <td th:text="${mapa.id}"></td>
+            <td th:text="${mapa.nom}"></td>
+            <td th:text="${mapa.descripcio}"></td>
+            <td>
+                <img th:if="${mapa.imatge}" th:src="${mapa.imatge}" alt="Imatge del mapa"/>
+                <span th:if="${mapa.imatge == null}" class="badge badge-secondary">Sense imatge</span>
+            </td>
+            <td>
+                <span class="badge badge-primary" th:text="${mapa.modoJuego.nom}"></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>
