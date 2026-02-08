@@ -1,10 +1,12 @@
-package com.pausiar.APIinicial.model;
+package com.pausiar.APICompleta.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
-public class Mapa {
+public class Personatge {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,18 +15,20 @@ public class Mapa {
     @Column(nullable = false)
     private String nom;
 
+    private String rol;
     private String descripcio;
     private String imatge;
 
-    @ManyToOne
-    @JoinColumn(name = "modo_juego_id")
-    private ModoJuego modoJuego;
+    @OneToMany(mappedBy = "personatge")
+    @JsonIgnore
+    private List<Habilitat> habilitats;
 
-    public Mapa() {
+    public Personatge() {
     }
 
-    public Mapa(String nom, String descripcio, String imatge) {
+    public Personatge(String nom, String rol, String descripcio, String imatge) {
         this.nom = nom;
+        this.rol = rol;
         this.descripcio = descripcio;
         this.imatge = imatge;
     }
@@ -45,6 +49,14 @@ public class Mapa {
         this.nom = nom;
     }
 
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
     public String getDescripcio() {
         return descripcio;
     }
@@ -61,11 +73,11 @@ public class Mapa {
         this.imatge = imatge;
     }
 
-    public ModoJuego getModoJuego() {
-        return modoJuego;
+    public List<Habilitat> getHabilitats() {
+        return habilitats;
     }
 
-    public void setModoJuego(ModoJuego modoJuego) {
-        this.modoJuego = modoJuego;
+    public void setHabilitats(List<Habilitat> habilitats) {
+        this.habilitats = habilitats;
     }
 }

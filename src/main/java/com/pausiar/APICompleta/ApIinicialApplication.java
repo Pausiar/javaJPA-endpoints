@@ -1,4 +1,4 @@
-package com.pausiar.APIinicial;
+package com.pausiar.APICompleta;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

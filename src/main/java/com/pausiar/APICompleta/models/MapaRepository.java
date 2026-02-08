@@ -1,4 +1,4 @@
-package com.pausiar.APIinicial.model;
+package com.pausiar.APICompleta.models;
 
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,10 +1,10 @@
-package com.pausiar.APIinicial.model;
+package com.pausiar.APICompleta.models;
 
 import jakarta.persistence.*;
 
 @Entity
 @Table
-public class Arma {
+public class Habilitat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,19 +13,21 @@ public class Arma {
     @Column(nullable = false)
     private String nom;
 
-    private String categoria;
-    private int preu;
     private String descripcio;
+    private String tecla;
     private String imatge;
 
-    public Arma() {
+    @ManyToOne
+    @JoinColumn(name = "personatge_id")
+    private Personatge personatge;
+
+    public Habilitat() {
     }
 
-    public Arma(String nom, String categoria, int preu, String descripcio, String imatge) {
+    public Habilitat(String nom, String descripcio, String tecla, String imatge) {
         this.nom = nom;
-        this.categoria = categoria;
-        this.preu = preu;
         this.descripcio = descripcio;
+        this.tecla = tecla;
         this.imatge = imatge;
     }
 
@@ -45,22 +47,6 @@ public class Arma {
         this.nom = nom;
     }
 
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    public int getPreu() {
-        return preu;
-    }
-
-    public void setPreu(int preu) {
-        this.preu = preu;
-    }
-
     public String getDescripcio() {
         return descripcio;
     }
@@ -69,11 +55,27 @@ public class Arma {
         this.descripcio = descripcio;
     }
 
+    public String getTecla() {
+        return tecla;
+    }
+
+    public void setTecla(String tecla) {
+        this.tecla = tecla;
+    }
+
     public String getImatge() {
         return imatge;
     }
 
     public void setImatge(String imatge) {
         this.imatge = imatge;
+    }
+
+    public Personatge getPersonatge() {
+        return personatge;
+    }
+
+    public void setPersonatge(Personatge personatge) {
+        this.personatge = personatge;
     }
 }
