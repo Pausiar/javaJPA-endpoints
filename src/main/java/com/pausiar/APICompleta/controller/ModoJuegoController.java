@@ -1,8 +1,11 @@
 package com.pausiar.APICompleta.controller;
 
+import com.pausiar.APICompleta.models.Mapa;
+import com.pausiar.APICompleta.models.MapaRepository;
 import com.pausiar.APICompleta.models.ModoJuego;
 import com.pausiar.APICompleta.models.ModoJuegoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +16,9 @@ public class ModoJuegoController {
 
     @Autowired
     private ModoJuegoRepository modoJuegoRepository;
+
+    @Autowired
+    private MapaRepository mapaRepository;
 
     // GET /api/modosjuego -> llistar tots
     @GetMapping("/modosjuego")
@@ -44,7 +50,13 @@ public class ModoJuegoController {
 
     // DELETE /api/modosjuego/{id} -> eliminar
     @DeleteMapping("/modosjuego/{id}")
+    @Transactional
     public void eliminarModo(@PathVariable Long id) {
-        modoJuegoRepository.deleteById(id);
+        ModoJuego modoJuego = modoJuegoRepository.findById(id).orElse(null);
+        if (modoJuego != null) {
+            List<Mapa> mapes = mapaRepository.findByModoJuegoId(id);
+            mapaRepository.deleteAll(mapes);
+            modoJuegoRepository.deleteById(id);
+        }
     }
 }

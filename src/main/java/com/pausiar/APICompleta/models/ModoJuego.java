@@ -17,7 +17,7 @@ public class ModoJuego {
 
     private String descripcio;
 
-    @OneToMany(mappedBy = "modoJuego")
+    @OneToMany(mappedBy = "modoJuego", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<Mapa> mapes;
 

@@ -1,8 +1,11 @@
 package com.pausiar.APICompleta.controller;
 
+import com.pausiar.APICompleta.models.Habilitat;
+import com.pausiar.APICompleta.models.HabilitatRepository;
 import com.pausiar.APICompleta.models.Personatge;
 import com.pausiar.APICompleta.models.PersonatgeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +16,9 @@ public class PersonatgeController {
 
     @Autowired
     private PersonatgeRepository personatgeRepository;
+
+    @Autowired
+    private HabilitatRepository habilitatRepository;
 
     // GET /api/personatges -> llistar tots
     @GetMapping("/personatges")
@@ -44,7 +50,14 @@ public class PersonatgeController {
 
     // DELETE /api/personatges/{id} -> eliminar
     @DeleteMapping("/personatges/{id}")
+    @Transactional
     public void eliminarPersonatge(@PathVariable Long id) {
-        personatgeRepository.deleteById(id);
+        // Primero eliminar las habilidades asociadas
+        Personatge personatge = personatgeRepository.findById(id).orElse(null);
+        if (personatge != null) {
+            List<Habilitat> habilitats = habilitatRepository.findByPersonatgeId(id);
+            habilitatRepository.deleteAll(habilitats);
+            personatgeRepository.deleteById(id);
+        }
     }
 }
