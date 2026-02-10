@@ -1,4 +1,4 @@
-package com.pausiar.APICompleta.models;
+package com.pausiar.APICompleta.models.Entitats;
 
 import jakarta.persistence.*;
 

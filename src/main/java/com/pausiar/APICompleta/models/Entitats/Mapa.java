@@ -1,10 +1,10 @@
-package com.pausiar.APICompleta.models;
+package com.pausiar.APICompleta.models.Entitats;
 
 import jakarta.persistence.*;
 
 @Entity
 @Table
-public class Habilitat {
+public class Mapa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,20 +14,18 @@ public class Habilitat {
     private String nom;
 
     private String descripcio;
-    private String tecla;
     private String imatge;
 
     @ManyToOne
-    @JoinColumn(name = "personatge_id")
-    private Personatge personatge;
+    @JoinColumn(name = "modo_juego_id")
+    private ModoJuego modoJuego;
 
-    public Habilitat() {
+    public Mapa() {
     }
 
-    public Habilitat(String nom, String descripcio, String tecla, String imatge) {
+    public Mapa(String nom, String descripcio, String imatge) {
         this.nom = nom;
         this.descripcio = descripcio;
-        this.tecla = tecla;
         this.imatge = imatge;
     }
 
@@ -55,14 +53,6 @@ public class Habilitat {
         this.descripcio = descripcio;
     }
 
-    public String getTecla() {
-        return tecla;
-    }
-
-    public void setTecla(String tecla) {
-        this.tecla = tecla;
-    }
-
     public String getImatge() {
         return imatge;
     }
@@ -71,11 +61,11 @@ public class Habilitat {
         this.imatge = imatge;
     }
 
-    public Personatge getPersonatge() {
-        return personatge;
+    public ModoJuego getModoJuego() {
+        return modoJuego;
     }
 
-    public void setPersonatge(Personatge personatge) {
-        this.personatge = personatge;
+    public void setModoJuego(ModoJuego modoJuego) {
+        this.modoJuego = modoJuego;
     }
 }

@@ -1,9 +1,9 @@
 package com.pausiar.APICompleta.controller;
 
-import com.pausiar.APICompleta.models.Mapa;
-import com.pausiar.APICompleta.models.MapaRepository;
-import com.pausiar.APICompleta.models.ModoJuego;
-import com.pausiar.APICompleta.models.ModoJuegoRepository;
+import com.pausiar.APICompleta.models.Entitats.Mapa;
+import com.pausiar.APICompleta.models.Repositoris.MapaRepository;
+import com.pausiar.APICompleta.models.Entitats.ModoJuego;
+import com.pausiar.APICompleta.models.Repositoris.ModoJuegoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;

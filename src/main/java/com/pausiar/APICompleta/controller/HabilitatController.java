@@ -1,7 +1,7 @@
 package com.pausiar.APICompleta.controller;
 
-import com.pausiar.APICompleta.models.Habilitat;
-import com.pausiar.APICompleta.models.HabilitatRepository;
+import com.pausiar.APICompleta.models.Entitats.Habilitat;
+import com.pausiar.APICompleta.models.Repositoris.HabilitatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

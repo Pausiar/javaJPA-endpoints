@@ -1,7 +1,7 @@
 package com.pausiar.APICompleta.controller;
 
-import com.pausiar.APICompleta.models.Arma;
-import com.pausiar.APICompleta.models.ArmaRepository;
+import com.pausiar.APICompleta.models.Entitats.Arma;
+import com.pausiar.APICompleta.models.Repositoris.ArmaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

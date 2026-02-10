@@ -1,5 +1,6 @@
-package com.pausiar.APICompleta.models;
+package com.pausiar.APICompleta.models.Repositoris;
 
+import com.pausiar.APICompleta.models.Entitats.Habilitat;
 import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
